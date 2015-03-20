@@ -1,14 +1,9 @@
----
-title: "README.md"
-author: "Alexandra Teste"
-date: "March 15, 2015"
-output: html_document
----
+# README.md #
 
 ## Project objective ##
-The code run_analysis.R aims at executing five specific operations (described below) on a data set collected from the accelerometers from the Samsung Galaxy S smartphone, and made available on the [UCI Machine Learning website](http://archive.ics.uci.edu/ml/data sets/Human+Activity+Recognition+Using+Smartphones).
+The code run_analysis.R aims at executing five specific operations (described below) on a data set collected from the accelerometers from the Samsung Galaxy S smartphone, and made available on the [UCI Machine Learning website](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
-## data set description ##
+## Data set description ##
 
 The data set used in this project was compiled by Jorge L. Reyes-Ortiz's team in Italy and is called the "Human Activity Recognition Using Smartphones data set" (version 1.0) [1].
 
