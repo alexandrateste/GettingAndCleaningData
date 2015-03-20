@@ -64,11 +64,11 @@ The data set "UCI_HAR_dataset_Averages_CleanedData.txt" submitted for this proje
  1. Split the 'subset_df' dataframe by participant
  2. For each participant:
         
-  a. Compute the average of each column for each of the 6 activity types
-  b. Save the results in a matrix, then in a dataframe and transpose it to have the variables in columns and not rows
-  c. Add the 'participant_id' and the 'activity_code' columns to the dataframe
-  d. Move them so they become the first two columns
-  e. Add data to the master dataframe 'final_df' that will be saved in a .txt file
+  * Compute the average of each column for each of the 6 activity types
+  * Save the results in a matrix, then in a dataframe and transpose it to have the variables in columns and not rows
+  * Add the 'participant_id' and the 'activity_code' columns to the dataframe
+  * Move them so they become the first two columns
+  * Add data to the master dataframe 'final_df' that will be saved in a .txt file
  3. Add column names to the master dataframe
  4. Add the prefix 'Add_' to all column names (except the participant and activity ones) to indicate what the values correspond to
  5. Replace default row numbers by numerical and increasing values starting at 1 (not needed for this project, but cleaner)
