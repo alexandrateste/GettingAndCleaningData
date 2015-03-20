@@ -28,53 +28,48 @@ The data set "UCI_HAR_dataset_Averages_CleanedData.txt" submitted for this proje
 
 #### 1. Merge of training and test data ####
 
-
- a. Assuming that the zip file 'getdata-projectfiles-UCI HAR Dataset.zip' is in the working directory, unzip it
- b. Extract the activity codes (subject_test.txt), TEST data (X_test.txt), and participant data (y_test.txt)
- c. Store them all into a single dataframe (test_combined), with participants as the first column, activity codes as the second one, and the measurements as the rest of the columns
- d. As these 3 sets of data end up with the same first variable (V1), replace that name with 'participant_id' and 'activity_code' for the first 2 columns
- e. Do the same with the training data (subject_train.txt, X_train.txt, y_train.txt), and store them into the train_combined dataframe
- f. Combine the 2 dataframes into a single one: fully_comb (for fully_combined), with the rbind function
+ 1. Assuming that the zip file 'getdata-projectfiles-UCI HAR Dataset.zip' is in the working directory, unzip it
+ 2. Extract the activity codes (subject_test.txt), TEST data (X_test.txt), and participant data (y_test.txt)
+ 3. Store them all into a single dataframe (test_combined), with participants as the first column, activity codes as the second one, and the measurements as the rest of the columns
+ 4. As these 3 sets of data end up with the same first variable (V1), replace that name with 'participant_id' and 'activity_code' for the first 2 columns
+ 5. Do the same with the training data (subject_train.txt, X_train.txt, y_train.txt), and store them into the train_combined dataframe
+ 6. Combine the 2 dataframes into a single one: fully_comb (for fully_combined), with the rbind function
 
 #### 2. Extraction of only mean and standard deviation variables for each measurement ####
 
-
- a. Extract the names of the columns of the original test.txt and train.txt files from the features.txt file, and store them into the 'features' dataframe
- b. Force the elements of the second column of the 'features' dataframe to be read as characters
- c. Identify the names which contain the string "mean()" or "std()"
- d. Identify the corresponding indices in the features list
- e. Compile a list of all these indices to take a subset of the full dataframe 'fully_comb'
- f. Add the 2 extra indices for the columns 'participant_id' and 'activity_code'
- g. Extract the subset of data related to mean and std measurements, and to participants and activities, and store them into the dataframe 'subset_df'
+ 1. Extract the names of the columns of the original test.txt and train.txt files from the features.txt file, and store them into the 'features' dataframe
+ 2. Force the elements of the second column of the 'features' dataframe to be read as characters
+ 3. Identify the names which contain the string "mean()" or "std()"
+ 4. Identify the corresponding indices in the features list
+ 5. Compile a list of all these indices to take a subset of the full dataframe 'fully_comb'
+ 6. Add the 2 extra indices for the columns 'participant_id' and 'activity_code'
+ 7. Extract the subset of data related to mean and std measurements, and to participants and activities, and store them into the dataframe 'subset_df'
 
 #### 3. Use of descriptive activity names to name the activities in the data set ####
 
-
- a. Read the activity names from the activity_labels.txt file and store them into the 'act_codes' dataframe
- b. Force the values in the 'activity_code' column of the 'subset_df' dataframe to be characters (and no longer integers) so a replacement by their actual names can be possible
- c. Replace the activity codes by the actual activity names (e.g. Laying, Standing, etc.)
+ 1. Read the activity names from the activity_labels.txt file and store them into the 'act_codes' dataframe
+ 2. Force the values in the 'activity_code' column of the 'subset_df' dataframe to be characters (and no longer integers) so a replacement by their actual names can be possible
+ 3. Replace the activity codes by the actual activity names (e.g. Laying, Standing, etc.)
  
 #### 4. Appropriately label the data set with descriptive variable names ###
 
-
- a. Create a list containing only the 'mean' and 'std' column names as well as 'participant_id' and 'activity_code'
- b. Replace the current names of the 'subset_df' columns by those included in the list mentioned above
- c. Replace default row numbers by numerical and increasing values starting at 1 (not needed for this project, but cleaner)
- d. Sort the results both by 'participant_id' and by 'activity_code' (increasing order)
- e. Write to a .txt file without the row number column nor quotes
+ 1. Create a list containing only the 'mean' and 'std' column names as well as 'participant_id' and 'activity_code'
+ 2. Replace the current names of the 'subset_df' columns by those included in the list mentioned above
+ 3. Replace default row numbers by numerical and increasing values starting at 1 (not needed for this project, but cleaner)
+ 4. Sort the results both by 'participant_id' and by 'activity_code' (increasing order)
+ 5. Write to a .txt file without the row number column nor quotes
 
 #### 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject ####
 
-
- a. Split the 'subset_df' dataframe by participant
- b. For each participant:
+ 1. Split the 'subset_df' dataframe by participant
+ 2. For each participant:
         
-    * Compute the average of each column for each of the 6 activity types
-    * Save the results in a matrix, then in a dataframe and transpose it to have the variables in columns and not rows
-    * Add the 'participant_id' and the 'activity_code' columns to the dataframe
-    * Move them so they become the first two columns
-    * Add data to the master dataframe 'final_df' that will be saved in a .txt file
- c. Add column names to the master dataframe
- d. Add the prefix 'Add_' to all column names (except the participant and activity ones) to indicate what the values correspond to
- e. Replace default row numbers by numerical and increasing values starting at 1 (not needed for this project, but cleaner)
- f. Write to a .txt file without the row number column nor quotes
+  a. Compute the average of each column for each of the 6 activity types
+  b. Save the results in a matrix, then in a dataframe and transpose it to have the variables in columns and not rows
+  c. Add the 'participant_id' and the 'activity_code' columns to the dataframe
+  d. Move them so they become the first two columns
+  e. Add data to the master dataframe 'final_df' that will be saved in a .txt file
+ 3. Add column names to the master dataframe
+ 4. Add the prefix 'Add_' to all column names (except the participant and activity ones) to indicate what the values correspond to
+ 5. Replace default row numbers by numerical and increasing values starting at 1 (not needed for this project, but cleaner)
+ 6. Write to a .txt file without the row number column nor quotes
