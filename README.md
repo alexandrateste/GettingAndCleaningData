@@ -28,6 +28,7 @@ The data set "UCI_HAR_dataset_Averages_CleanedData.txt" submitted for this proje
 
 #### 1. Merge of training and test data ####
 
+
  a. Assuming that the zip file 'getdata-projectfiles-UCI HAR Dataset.zip' is in the working directory, unzip it
  b. Extract the activity codes (subject_test.txt), TEST data (X_test.txt), and participant data (y_test.txt)
  c. Store them all into a single dataframe (test_combined), with participants as the first column, activity codes as the second one, and the measurements as the rest of the columns
@@ -36,6 +37,7 @@ The data set "UCI_HAR_dataset_Averages_CleanedData.txt" submitted for this proje
  f. Combine the 2 dataframes into a single one: fully_comb (for fully_combined), with the rbind function
 
 #### 2. Extraction of only mean and standard deviation variables for each measurement ####
+
 
  a. Extract the names of the columns of the original test.txt and train.txt files from the features.txt file, and store them into the 'features' dataframe
  b. Force the elements of the second column of the 'features' dataframe to be read as characters
@@ -47,11 +49,13 @@ The data set "UCI_HAR_dataset_Averages_CleanedData.txt" submitted for this proje
 
 #### 3. Use of descriptive activity names to name the activities in the data set ####
 
+
  a. Read the activity names from the activity_labels.txt file and store them into the 'act_codes' dataframe
  b. Force the values in the 'activity_code' column of the 'subset_df' dataframe to be characters (and no longer integers) so a replacement by their actual names can be possible
  c. Replace the activity codes by the actual activity names (e.g. Laying, Standing, etc.)
  
 #### 4. Appropriately label the data set with descriptive variable names ###
+
 
  a. Create a list containing only the 'mean' and 'std' column names as well as 'participant_id' and 'activity_code'
  b. Replace the current names of the 'subset_df' columns by those included in the list mentioned above
@@ -60,6 +64,7 @@ The data set "UCI_HAR_dataset_Averages_CleanedData.txt" submitted for this proje
  e. Write to a .txt file without the row number column nor quotes
 
 #### 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject ####
+
 
  a. Split the 'subset_df' dataframe by participant
  b. For each participant:
